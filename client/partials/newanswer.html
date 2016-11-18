@@ -1,0 +1,14 @@
+<div ng-controller='questionController'>
+	<a href="#/msgboard">Home</a>
+	<a href="#/question/{{showQ._id}}">Go Back to Question</a>
+	<h1>{{showQ.question}}</h1>
+	<p>{{showQ.descr}}</p>
+	
+	<form>
+		Your Answer <input type="text" ng-model='newAnswer.answer' minlength="5">
+		Supporting Details (optional) <input type="text" ng-model='newAnswer.detail'>
+		<input type="submit" value="Submit" ng-click='addAnswer(showQ._id)'>
+	</form>
+	{{errormsg}}
+	<a href="#/question/{{showQ._id}}">Cancel</a>
+</div>

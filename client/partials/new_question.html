@@ -1,0 +1,12 @@
+<div ng-controller='questionController'>
+	<h1>New Question</h1>
+	<form name="form">
+		Question <textarea name="question" ng-model='newQuestion.question' minlength="10" required=""></textarea>
+		<div ng-show ='form.$submitted || form.question.$touched'>
+			<span ng-show='form.question.$error.required'>Field should contain more than 10 characters</span>
+		</div>
+		Description (optional)<textarea ng-model='newQuestion.descr'></textarea>
+		<input type="submit" value="Submit" ng-click='addQuestion()'>
+	</form>
+	<a href="#/msgboard">Cancel</a>
+</div>

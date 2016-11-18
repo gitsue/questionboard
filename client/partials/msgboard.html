@@ -1,0 +1,24 @@
+<div ng-controller="questionController">
+	<h1>Hi, {{curr_user}}!</h1>
+	<a href="#/new_question">Ask a Question</a>
+	<input type="text" placeholder="Search..." ng-model='q_search'>
+	<table>
+		<thead>
+			<tr>
+				<th>Question</th>
+				<th>Answers</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat='q in qboard |filter: q_search'>
+				<td>{{q.question}}</td>
+				<td>{{q.answer_count}}</td>
+				<td>
+				<a href="#/question/{{q._id}}">Show</a>
+				<a href="#/question/{{q._id}}/new_answer">Answer</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

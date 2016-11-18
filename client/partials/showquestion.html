@@ -1,0 +1,26 @@
+<div ng-controller='questionController'>
+	<a href="#/msgboard">Home</a>
+	<a href="#/question/{{showQ._id}}/new_answer">Answer this Question</a>
+	<h1>{{showQ.question}}</h1>
+	<p>Description: {{showQ.descr}}</p>
+
+	<h4>Answers:</h4>
+	<table>
+		<thead>
+			<tr>
+				<th>User</th>
+				<th>Answer</th>
+				<th>Likes</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat = "a in showQ._answer | orderBy: '-like' ">
+				<td>{{a._user.name}}</td>
+				<td>{{a.answer}}</td>
+				<td>{{a.like}} likes
+				<button ng-click='addLike(a._id, showQ)'>Like!</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
